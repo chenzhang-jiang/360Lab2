@@ -1,0 +1,1779 @@
+/* =========================================
+   BASIC SETTINGS
+========================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: "Courier New", monospace;
+  color: #31544f;
+  background: #f5fdff;
+  image-rendering: pixelated;
+}
+
+
+button,
+input {
+  font: inherit;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+
+.screen {
+  min-height: 100vh;
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+
+.show {
+  display: flex;
+}
+
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.pixel-btn,
+.small-btn {
+  border: 3px solid #527b69;
+  background: #f2fff8;
+  color: #31544f;
+  box-shadow: 4px 4px 0 #9dc9ba;
+  font-weight: bold;
+}
+
+
+.pixel-btn {
+  padding: 12px 20px;
+}
+
+
+.small-btn {
+  padding: 7px 10px;
+  font-size: 0.72rem;
+}
+
+
+.pixel-btn:hover,
+.small-btn:hover {
+  transform: translate(-1px, -1px);
+}
+
+
+
+/* =========================================
+   START SCREEN
+========================================= */
+
+.start-screen {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      #bce8f7,
+      #edfdf5
+    );
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+.black-fade {
+  position: fixed;
+  inset: 0;
+
+  background: #05080a;
+
+  z-index: 10;
+  pointer-events: none;
+
+  animation: fadeBlack 2s forwards;
+}
+
+
+@keyframes fadeBlack {
+
+  0%,
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+}
+
+
+.start-card {
+  width: min(720px, 88vw);
+
+  padding: 44px 34px;
+
+  background: #ffffffea;
+
+  border: 4px solid #527b69;
+
+  box-shadow:
+    10px 10px 0 #9bcbaf;
+}
+
+
+.logo {
+  width: min(520px, 90%);
+
+  margin-bottom: 18px;
+}
+
+
+.start-card > p {
+  margin-bottom: 24px;
+}
+
+
+.start-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+}
+
+
+.small-note {
+  font-size: 0.72rem !important;
+
+  margin: 16px 0 0 !important;
+
+  opacity: 0.65;
+}
+
+
+
+/* =========================================
+   WINDOW STYLE
+========================================= */
+
+.window-box {
+  background: white;
+
+  border: 4px solid #527b69;
+
+  box-shadow:
+    8px 8px 0 #9dc9ba;
+}
+
+
+.window-title {
+  min-height: 38px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #78bed9,
+      #a8dccc
+    );
+
+  color: white;
+
+  border-bottom: 3px solid #527b69;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 7px 10px;
+
+  font-weight: bold;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+
+
+/* =========================================
+   SAVE SCREEN
+========================================= */
+
+.save-screen {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dff5ff,
+      #f2fff8
+    );
+}
+
+
+.save-box {
+  width: min(520px, 88vw);
+}
+
+
+.save-body {
+  padding: 36px;
+
+  text-align: center;
+}
+
+
+.save-body h2,
+.save-body p {
+  margin-bottom: 16px;
+}
+
+
+.save-body input {
+  width: 100%;
+
+  padding: 12px;
+
+  border: 3px solid #9bcbaf;
+
+  background: #f2fff8;
+
+  margin-bottom: 18px;
+
+  outline: none;
+}
+
+
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.top-bar {
+  min-height: 74px;
+
+  background: white;
+
+  border-bottom: 4px solid #9bcbaf;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding: 10px 18px;
+
+  flex-wrap: wrap;
+}
+
+
+.brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  text-transform: uppercase;
+}
+
+
+.brand img {
+  width: 36px;
+}
+
+
+.status,
+.top-actions {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+
+.status span {
+  padding: 7px 10px;
+
+  border: 2px solid #6fb5d4;
+
+  background: #f5fdff;
+
+  box-shadow:
+    3px 3px 0 #c7e3eb;
+
+  font-size: 0.78rem;
+}
+
+
+
+/* =========================================
+   BALCONY
+========================================= */
+
+.balcony {
+  position: relative;
+
+  min-height:
+    calc(100vh - 212px);
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      rgba(166, 199, 190, 0.16) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(166, 199, 190, 0.16) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      to bottom,
+      #f3fcfb 0 62%,
+      #d9d3b8 62%,
+      #c8c09f 100%
+    );
+
+  background-size:
+    32px 32px,
+    32px 32px,
+    auto;
+}
+
+
+.balcony::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 62%;
+
+  height: 4px;
+
+  background: #93a58d;
+}
+
+
+
+/* =========================================
+   WINDOW AREA
+========================================= */
+
+.window-area {
+  display: flex;
+
+  justify-content: center;
+  align-items: flex-end;
+
+  gap: 18px;
+
+  padding-top: 28px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.window-frame {
+  width: min(620px, 58vw);
+
+  height: 290px;
+
+  border: 12px solid white;
+
+  outline: 4px solid #769b91;
+
+  box-shadow:
+    9px 9px 0 #b4d0c7;
+
+  position: relative;
+
+  background: white;
+}
+
+
+.window-line {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 7px;
+
+  transform:
+    translateX(-50%);
+
+  background: white;
+
+  border-left:
+    2px solid #9bb5ad;
+
+  border-right:
+    2px solid #9bb5ad;
+
+  z-index: 8;
+}
+
+
+
+/* =========================================
+   SKY
+========================================= */
+
+.sky {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+
+.sky.sunny {
+  background:
+    linear-gradient(
+      #8fd2ef,
+      #e7fbff
+    );
+}
+
+
+.sky.rainy {
+  background:
+    linear-gradient(
+      #769eaf,
+      #bfd0d5
+    );
+}
+
+
+
+/* =========================================
+   OUTSIDE
+========================================= */
+
+.outside {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 100%;
+
+  z-index: 1;
+}
+
+
+
+/* =========================================
+   CLOUDS
+========================================= */
+
+.cloud {
+  position: absolute;
+
+  width: 115px;
+
+  z-index: 2;
+}
+
+
+.cloud-a {
+  left: 45px;
+
+  top: 52px;
+}
+
+
+.cloud-b {
+  left: 235px;
+
+  top: 125px;
+
+  width: 90px;
+}
+
+
+
+/* =========================================
+   SUN
+   No sun-ray lines
+========================================= */
+
+.sun {
+  position: absolute;
+
+  right: 48px;
+
+  top: 26px;
+
+  width: 58px;
+  height: 58px;
+
+  background: #fff3ad;
+
+  border: 4px solid #e4cb6b;
+
+  box-shadow:
+    0 0 0 8px #fff1a83d;
+
+  z-index: 3;
+}
+
+
+.sky.rainy .sun {
+  display: none;
+}
+
+
+
+/* =========================================
+   BALCONY DOOR
+========================================= */
+
+.door {
+  width: 120px;
+
+  height: 270px;
+
+  border: 8px solid white;
+
+  outline:
+    4px solid #769b91;
+
+  background: #ecfbff9e;
+
+  position: relative;
+
+  transform-origin:
+    left center;
+
+  transition:
+    transform 0.6s;
+}
+
+
+.door-glass {
+  position: absolute;
+
+  inset: 10px;
+
+  background:
+    linear-gradient(
+      #c3e8f5bf,
+      #f3fcff73
+    );
+}
+
+
+.door-handle {
+  position: absolute;
+
+  width: 10px;
+  height: 46px;
+
+  left: 78px;
+
+  top: 112px;
+
+  background: #dbe4e5;
+
+  border:
+    2px solid #78908b;
+}
+
+
+/* Sunny door open */
+
+.balcony.sunny .door {
+  transform:
+    perspective(800px)
+    rotateY(-45deg)
+    translateX(6px);
+}
+
+
+/* Rainy door closed */
+
+.balcony.rainy .door {
+  transform: none;
+}
+
+
+
+/* =========================================
+   RAIN
+========================================= */
+
+.sky.rainy .cloud {
+  filter:
+    grayscale(0.8)
+    brightness(0.88);
+}
+
+
+.rain {
+  display: none;
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 6;
+
+  overflow: hidden;
+}
+
+
+.sky.rainy .rain {
+  display: block;
+}
+
+
+.rain i {
+  position: absolute;
+
+  top: -45px;
+
+  width: 2px;
+
+  height: 40px;
+
+  background: #effaffc2;
+
+  animation:
+    rainFall 0.85s
+    linear infinite;
+}
+
+
+.rain i:nth-child(1) {
+  left: 8%;
+}
+
+
+.rain i:nth-child(2) {
+  left: 20%;
+  animation-delay: 0.3s;
+}
+
+
+.rain i:nth-child(3) {
+  left: 32%;
+  animation-delay: 0.5s;
+}
+
+
+.rain i:nth-child(4) {
+  left: 44%;
+  animation-delay: 0.1s;
+}
+
+
+.rain i:nth-child(5) {
+  left: 57%;
+  animation-delay: 0.7s;
+}
+
+
+.rain i:nth-child(6) {
+  left: 69%;
+  animation-delay: 0.2s;
+}
+
+
+.rain i:nth-child(7) {
+  left: 82%;
+  animation-delay: 0.6s;
+}
+
+
+.rain i:nth-child(8) {
+  left: 93%;
+  animation-delay: 0.4s;
+}
+
+
+@keyframes rainFall {
+
+  to {
+    transform:
+      translateY(360px);
+  }
+
+}
+
+
+
+/* Glass raindrops */
+
+.rain b {
+  position: absolute;
+
+  width: 7px;
+
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: #eaf9ff99;
+
+  animation:
+    dropSlide 3s
+    ease-in infinite;
+}
+
+
+.rain b:nth-of-type(1) {
+  left: 18%;
+
+  top: 10px;
+}
+
+
+.rain b:nth-of-type(2) {
+  left: 62%;
+
+  top: 35px;
+
+  animation-delay: 1s;
+}
+
+
+.rain b:nth-of-type(3) {
+  left: 82%;
+
+  top: 5px;
+
+  animation-delay: 2s;
+}
+
+
+@keyframes dropSlide {
+
+  0% {
+    transform:
+      translateY(0);
+
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.9;
+  }
+
+  100% {
+    transform:
+      translateY(230px);
+
+    opacity: 0;
+  }
+
+}
+
+
+
+/* =========================================
+   FLOWER SHELF
+========================================= */
+
+.flower-shelf {
+  position: absolute;
+
+  left: 5%;
+
+  bottom: 105px;
+
+  width: 240px;
+
+  z-index: 5;
+
+  border: none;
+
+  background: transparent;
+
+  color: #31544f;
+}
+
+
+.shelf-title {
+  display: block;
+
+  width: 150px;
+
+  margin:
+    0 auto 7px;
+
+  padding: 5px 8px;
+
+  background: #fffdf5;
+
+  border:
+    3px solid #876949;
+
+  box-shadow:
+    3px 3px 0 #d5c5a8;
+
+  font-size: 0.67rem;
+}
+
+
+.shelf-row {
+  height: 64px;
+
+  display: flex;
+
+  justify-content:
+    space-around;
+
+  align-items:
+    flex-end;
+
+  padding: 4px 12px;
+
+  background: #d7ba8f;
+
+  border:
+    4px solid #876949;
+}
+
+
+.shelf-row + .shelf-row {
+  margin-top: 9px;
+}
+
+
+.shelf-slot {
+  width: 78px;
+
+  height: 54px;
+
+  border:
+    2px dashed #594c3840;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: center;
+}
+
+
+.shelf-slot img {
+  width: 62px;
+
+  height: 62px;
+
+  object-fit: contain;
+}
+
+
+.flower-shelf small {
+  display: block;
+
+  margin-top: 8px;
+
+  font-size: 0.63rem;
+
+  opacity: 0.65;
+}
+
+
+
+/* =========================================
+   ONE PLANT SPOT
+========================================= */
+
+.plant-spot {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 68px;
+
+  transform:
+    translateX(-50%);
+
+  width: 130px;
+
+  height: 100px;
+
+  border:
+    3px dashed #8d9b7c;
+
+  background: #ffffff36;
+
+  z-index: 6;
+
+  display: flex;
+
+  align-items:
+    flex-end;
+
+  justify-content:
+    center;
+}
+
+
+.plant-spot:hover,
+.plant-spot.drag-over {
+
+  background:
+    #cdefdcad;
+
+  border-color:
+    #527b69;
+}
+
+
+.plant-spot > span {
+  position: absolute;
+
+  bottom: 5px;
+
+  font-size: 0.62rem;
+
+  opacity: 0.45;
+}
+
+
+.plant-stage {
+  width: 100px;
+
+  height: 120px;
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 2px;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+
+  align-items:
+    flex-end;
+
+  justify-content:
+    center;
+
+  pointer-events: none;
+}
+
+
+.plant-stage img {
+  max-width: 94px;
+
+  max-height: 116px;
+
+  filter:
+    drop-shadow(
+      3px 3px 0 #546c5b1f
+    );
+}
+
+
+.grow {
+  animation:
+    grow 0.45s;
+}
+
+
+@keyframes grow {
+
+  0% {
+    transform:
+      translateX(-50%)
+      scale(0.78);
+  }
+
+  65% {
+    transform:
+      translateX(-50%)
+      scale(1.08);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      scale(1);
+  }
+
+}
+
+
+
+/* =========================================
+   LITTLE TIP
+========================================= */
+
+.tip-box {
+  position: absolute;
+
+  right: 4%;
+
+  top: 40%;
+
+  width: 290px;
+
+  z-index: 12;
+}
+
+
+.tip-body {
+  padding: 16px;
+
+  line-height: 1.55;
+
+  font-size: 0.84rem;
+}
+
+
+.space-hint {
+  margin-top: 12px;
+
+  color: #6fb5d4;
+
+  font-weight: bold;
+}
+
+
+.space-hint kbd {
+  padding: 2px 7px;
+
+  border:
+    2px solid #527b69;
+
+  background: #fffdf5;
+
+  box-shadow:
+    2px 2px 0 #9dc9ba;
+}
+
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+  position: absolute;
+
+  left: 50%;
+
+  top: 22px;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 30;
+
+  padding: 10px 16px;
+
+  background: white;
+
+  border:
+    3px solid #527b69;
+
+  box-shadow:
+    5px 5px 0 #9dc9ba;
+
+  font-size: 0.8rem;
+}
+
+
+.cozy {
+  top: 70px;
+}
+
+
+
+/* =========================================
+   TOOLBAR
+========================================= */
+
+.toolbar {
+  min-height: 138px;
+
+  padding:
+    10px 18px 16px;
+
+  background: #fbfffd;
+
+  border-top:
+    4px solid #9bcbaf;
+}
+
+
+.toolbar-note {
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  gap: 12px;
+
+  width:
+    min(900px, 96%);
+
+  margin:
+    0 auto 8px;
+
+  font-size: 0.7rem;
+
+  color: #527b69;
+}
+
+
+.tools {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+}
+
+
+.tool {
+  width: 150px;
+
+  min-height: 88px;
+
+  background: #f5fdff;
+
+  border:
+    3px solid #6f9fb1;
+
+  box-shadow:
+    4px 4px 0 #c5e3ea;
+
+  color: #31544f;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 4px;
+}
+
+
+.tool img {
+  width: 42px;
+
+  height: 42px;
+
+  object-fit: contain;
+
+  pointer-events: none;
+}
+
+
+.tool span {
+  font-size: 0.67rem;
+
+  font-weight: bold;
+}
+
+
+.tool:hover {
+  transform:
+    translateY(-2px);
+}
+
+
+.tool.selected {
+  background: #f2fff8;
+
+  border-color:
+    #527b69;
+
+  box-shadow:
+    4px 4px 0 #9bcbaf;
+}
+
+
+
+/* =========================================
+   POPUPS
+========================================= */
+
+.overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #263a366f;
+
+  backdrop-filter:
+    blur(2px);
+}
+
+
+.popup-box {
+  width:
+    min(480px, 88vw);
+}
+
+
+.popup-body {
+  text-align: center;
+
+  padding: 28px;
+}
+
+
+.popup-body img {
+  width: 125px;
+
+  height: 125px;
+
+  object-fit: contain;
+
+  margin-bottom: 10px;
+}
+
+
+.popup-body h2,
+.popup-body p {
+  margin-bottom: 10px;
+}
+
+
+
+/* =========================================
+   FLOWER JOURNAL
+========================================= */
+
+.gallery-box {
+  width:
+    min(720px, 92vw);
+}
+
+
+.gallery-body {
+  padding: 24px;
+}
+
+
+.gallery-body > p {
+  margin-bottom: 16px;
+}
+
+
+.gallery-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(130px, 1fr)
+    );
+
+  gap: 14px;
+}
+
+
+.flower-card {
+  padding: 12px;
+
+  border:
+    3px solid #9bcbaf;
+
+  background: #f2fff8;
+
+  box-shadow:
+    4px 4px 0 #9dc9ba;
+
+  text-align: center;
+}
+
+
+.flower-card img {
+  width: 88px;
+
+  height: 88px;
+
+  object-fit: contain;
+
+  margin-bottom: 8px;
+}
+
+
+.flower-card h4 {
+  font-size: 0.82rem;
+
+  margin-bottom: 4px;
+}
+
+
+.flower-card p {
+  font-size: 0.72rem;
+}
+
+
+.close-btn {
+  width: 26px;
+
+  height: 26px;
+
+  border:
+    2px solid #ffffffd0;
+
+  background: white;
+
+  font-weight: bold;
+}
+
+
+.empty {
+  text-align: center;
+
+  padding: 18px;
+
+  opacity: 0.7;
+}
+
+
+
+/* =========================================
+   SUNNY WEATHER
+========================================= */
+
+.balcony.sunny {
+
+  background:
+
+    linear-gradient(
+      rgba(166,199,190,0.13) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(166,199,190,0.13) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      to bottom,
+      #f7ffff 0 62%,
+      #e4d9b8 62%,
+      #d4c59e 100%
+    );
+
+  background-size:
+    32px 32px,
+    32px 32px,
+    auto;
+}
+
+
+
+/* Soft sunlight inside balcony.
+   This is only a glow, not visible lines. */
+
+.balcony.sunny::before {
+
+  content: "";
+
+  position: absolute;
+
+  z-index: 3;
+
+  left: 42%;
+
+  top: 37%;
+
+  width: 330px;
+
+  height: 330px;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255,244,184,0.25),
+      rgba(255,244,184,0.08) 45%,
+      transparent 70%
+    );
+
+  animation:
+    sunRoomGlow 3s
+    ease-in-out infinite;
+}
+
+
+@keyframes sunRoomGlow {
+
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+
+}
+
+
+.sky.sunny .outside {
+
+  filter:
+    saturate(1.12)
+    brightness(1.08);
+}
+
+
+.sky.sunny .cloud {
+
+  animation:
+    cloudDrift 9s
+    ease-in-out infinite
+    alternate;
+}
+
+
+.sky.sunny .cloud-b {
+  animation-delay: 1.5s;
+}
+
+
+@keyframes cloudDrift {
+
+  from {
+    transform:
+      translateX(-5px);
+  }
+
+  to {
+    transform:
+      translateX(9px);
+  }
+
+}
+
+
+
+/* =========================================
+   RAINY WEATHER
+========================================= */
+
+.balcony.rainy {
+
+  background:
+
+    linear-gradient(
+      rgba(111,145,149,0.18) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(111,145,149,0.18) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      to bottom,
+      #e3eef0 0 62%,
+      #aeb8ad 62%,
+      #8f9d94 100%
+    );
+
+  background-size:
+    32px 32px,
+    32px 32px,
+    auto;
+}
+
+
+.balcony.rainy::before {
+
+  content: "";
+
+  position: absolute;
+
+  z-index: 3;
+
+  left: 0;
+
+  right: 0;
+
+  bottom: 0;
+
+  height: 38%;
+
+  pointer-events: none;
+
+  background:
+
+    linear-gradient(
+      110deg,
+      transparent 0 18%,
+      rgba(223,242,245,0.16) 19% 27%,
+      transparent 28% 50%,
+      rgba(223,242,245,0.12) 51% 60%,
+      transparent 61%
+    ),
+
+    linear-gradient(
+      rgba(64,91,94,0.05),
+      rgba(64,91,94,0.16)
+    );
+}
+
+
+.balcony.rainy::after {
+  background: #7f918c;
+}
+
+
+.sky.rainy .outside {
+
+  filter:
+    saturate(0.65)
+    brightness(0.8)
+    contrast(0.95);
+}
+
+
+.sky.rainy .cloud-a {
+
+  transform:
+    translateX(38px)
+    scale(1.08);
+}
+
+
+.sky.rainy .cloud-b {
+
+  transform:
+    translateX(-35px)
+    scale(1.12);
+}
+
+
+.sky.rainy .rain i {
+
+  height: 54px;
+
+  width: 3px;
+
+  background:
+    rgba(238,250,255,0.88);
+
+  animation-duration:
+    0.72s;
+}
+
+
+.sky.rainy .rain b {
+
+  background:
+    rgba(226,247,255,0.75);
+
+  box-shadow:
+    0 0 4px
+    rgba(255,255,255,0.55);
+}
+
+
+.balcony.rainy .flower-shelf,
+.balcony.rainy .plant-spot,
+.balcony.rainy .tip-box {
+
+  filter:
+    brightness(0.94)
+    saturate(0.9);
+}
+
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .window-frame {
+    width: 65vw;
+  }
+
+
+  .flower-shelf {
+
+    left: 2%;
+
+    transform:
+      scale(0.88);
+
+    transform-origin:
+      bottom left;
+  }
+
+
+  .tip-box {
+
+    right: 2%;
+
+    width: 250px;
+  }
+
+}
+
+
+
+@media (max-width: 720px) {
+
+  .balcony {
+    min-height: 800px;
+  }
+
+
+  .window-frame {
+
+    width: 75vw;
+
+    height: 240px;
+  }
+
+
+  .door {
+
+    width: 90px;
+
+    height: 225px;
+  }
+
+
+  .tip-box {
+
+    top: 290px;
+
+    right: auto;
+
+    left: 50%;
+
+    transform:
+      translateX(-50%);
+
+    width: 88%;
+  }
+
+
+  .flower-shelf {
+
+    bottom: 110px;
+
+    transform:
+      scale(0.78);
+  }
+
+
+  .plant-spot {
+    bottom: 72px;
+  }
+
+
+  .tool {
+    width: 44%;
+  }
+
+
+  .toolbar-note {
+    flex-direction: column;
+  }
+
+
+  .top-bar {
+    align-items: flex-start;
+  }
+
+}
+
+
+
+@media (max-width: 480px) {
+
+  .brand strong {
+    display: none;
+  }
+
+
+  .window-frame {
+
+    width: 88vw;
+
+    height: 215px;
+  }
+
+
+  .door {
+    display: none;
+  }
+
+
+  .flower-shelf {
+    left: -18px;
+  }
+
+
+  .top-actions {
+    width: 100%;
+  }
+
+}

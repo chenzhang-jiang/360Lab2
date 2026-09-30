@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My Little Balcony</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+
+<body>
+
+  <!-- =====================================
+       START SCREEN
+  ====================================== -->
+
+  <section id="start-screen" class="screen show start-screen">
+
+    <div class="black-fade"></div>
+
+    <div class="start-card">
+
+      <img
+        class="logo"
+        src="images/logo.png"
+        alt="My Little Balcony"
+      >
+
+      <p>
+        A small place to grow something new.
+      </p>
+
+      <div class="start-buttons">
+
+        <button id="start-btn" class="pixel-btn">
+          Start Game
+        </button>
+
+        <button
+          id="continue-btn"
+          class="pixel-btn hidden"
+        >
+          Continue Game
+        </button>
+
+      </div>
+
+      <p
+        id="continue-note"
+        class="small-note hidden"
+      >
+        Continue your saved balcony.
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================
+       CREATE SAVE
+  ====================================== -->
+
+  <section
+    id="save-screen"
+    class="screen hidden save-screen"
+  >
+
+    <div class="window-box save-box">
+
+      <div class="window-title">
+        Create Your Save
+      </div>
+
+      <div class="save-body">
+
+        <h2>Welcome!</h2>
+
+        <p>
+          What should I call you?
+        </p>
+
+        <input
+          id="name-input"
+          type="text"
+          maxlength="15"
+          placeholder="Your name..."
+        >
+
+        <button
+          id="create-btn"
+          class="pixel-btn"
+        >
+          Create Save
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================
+       GAME
+  ====================================== -->
+
+  <section
+    id="game-screen"
+    class="screen hidden"
+  >
+
+
+    <!-- TOP BAR -->
+
+    <header class="top-bar">
+
+      <div class="brand">
+
+        <img
+          src="images/logo-mini.png"
+          alt=""
+        >
+
+        <strong>
+          My Little Balcony
+        </strong>
+
+      </div>
+
+
+      <div class="status">
+
+        <span>
+          Player:
+          <b id="player-name">---</b>
+        </span>
+
+        <span>
+          Weather:
+          <b id="weather-name">Sunny</b>
+        </span>
+
+      </div>
+
+
+      <div class="top-actions">
+
+        <button
+          id="flowers-btn"
+          class="small-btn"
+        >
+          View Flowers
+        </button>
+
+        <button
+          id="exit-btn"
+          class="small-btn"
+        >
+          Save & Exit
+        </button>
+
+      </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         BALCONY
+    ====================================== -->
+
+    <main
+      id="balcony"
+      class="balcony sunny"
+    >
+
+
+      <!-- WINDOW + DOOR -->
+
+      <div class="window-area">
+
+
+        <div class="window-frame">
+
+          <div
+            id="sky"
+            class="sky sunny"
+          >
+
+            <!-- Outside scenery -->
+
+            <img
+              class="outside"
+              src="images/outside-scenery.png"
+              alt="Outside scenery"
+            >
+
+
+            <!-- Clouds -->
+
+            <img
+              class="cloud cloud-a"
+              src="images/cloud.png"
+              alt=""
+            >
+
+            <img
+              class="cloud cloud-b"
+              src="images/cloud.png"
+              alt=""
+            >
+
+
+            <!-- Sun -->
+
+            <div class="sun"></div>
+
+
+            <!-- Rain -->
+
+            <div class="rain">
+
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+
+              <b></b>
+              <b></b>
+              <b></b>
+
+            </div>
+
+          </div>
+
+
+          <div class="window-line"></div>
+
+        </div>
+
+
+
+        <!-- BALCONY DOOR -->
+
+        <div class="door">
+
+          <div class="door-glass"></div>
+
+          <div class="door-handle"></div>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- =====================================
+           FLOWER SHELF
+      ====================================== -->
+
+      <button
+        id="shelf-btn"
+        class="flower-shelf"
+        aria-label="View flower history"
+      >
+
+        <span class="shelf-title">
+          FLOWER SHELF
+        </span>
+
+
+        <span class="shelf-row">
+
+          <span
+            class="shelf-slot"
+            id="shelf-0"
+          ></span>
+
+          <span
+            class="shelf-slot"
+            id="shelf-1"
+          ></span>
+
+        </span>
+
+
+        <span class="shelf-row">
+
+          <span
+            class="shelf-slot"
+            id="shelf-2"
+          ></span>
+
+          <span
+            class="shelf-slot"
+            id="shelf-3"
+          ></span>
+
+        </span>
+
+
+        <small>
+          click to view all flowers
+        </small>
+
+      </button>
+
+
+
+      <!-- =====================================
+           ONE PLANT SPOT
+      ====================================== -->
+
+      <div
+        id="plant-spot"
+        class="plant-spot"
+      >
+
+        <span id="spot-label">
+          plant spot
+        </span>
+
+        <div
+          id="plant-stage"
+          class="plant-stage"
+        ></div>
+
+      </div>
+
+
+
+      <!-- =====================================
+           LITTLE TIP
+      ====================================== -->
+
+      <aside class="window-box tip-box">
+
+        <div class="window-title">
+          Little Tip
+        </div>
+
+        <div class="tip-body">
+
+          <p id="tip-text">
+            Welcome to your little balcony.
+          </p>
+
+          <p
+            id="space-hint"
+            class="space-hint hidden"
+          >
+            Press
+            <kbd>SPACE</kbd>
+          </p>
+
+        </div>
+
+      </aside>
+
+
+
+      <!-- MESSAGE -->
+
+      <div
+        id="message"
+        class="message hidden"
+      ></div>
+
+
+      <div
+        id="cozy"
+        class="message cozy hidden"
+      >
+        Cozy mode activated ♡
+      </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         TOOLBAR
+    ====================================== -->
+
+    <footer class="toolbar">
+
+      <div class="toolbar-note">
+
+        <span>
+          STARTER TOOLS
+        </span>
+
+        <span id="tool-help">
+          Click a tool, then click the plant spot — or drag the tool directly.
+        </span>
+
+      </div>
+
+
+
+      <div class="tools">
+
+
+        <button
+          class="tool"
+          data-tool="pot"
+          draggable="true"
+        >
+
+          <img
+            src="images/tool-pot.png"
+            alt=""
+          >
+
+          <span>
+            Flower Pot
+          </span>
+
+        </button>
+
+
+
+        <button
+          class="tool"
+          data-tool="shovel"
+          draggable="true"
+        >
+
+          <img
+            src="images/tool-shovel.png"
+            alt=""
+          >
+
+          <span>
+            Shovel
+          </span>
+
+        </button>
+
+
+
+        <button
+          class="tool"
+          data-tool="seed"
+          draggable="true"
+        >
+
+          <img
+            src="images/tool-seed.png"
+            alt=""
+          >
+
+          <span>
+            Mystery Seed
+          </span>
+
+        </button>
+
+
+
+        <button
+          class="tool"
+          data-tool="water"
+          draggable="true"
+        >
+
+          <img
+            src="images/tool-water.png"
+            alt=""
+          >
+
+          <span>
+            Watering Can
+          </span>
+
+        </button>
+
+
+      </div>
+
+    </footer>
+
+
+
+    <!-- =====================================
+         FLOWER BLOOM POPUP
+    ====================================== -->
+
+    <div
+      id="bloom-popup"
+      class="overlay hidden"
+    >
+
+      <div class="window-box popup-box">
+
+        <div class="window-title">
+          New Flower!
+        </div>
+
+
+        <div class="popup-body">
+
+          <img
+            id="bloom-img"
+            src="images/violet.png"
+            alt=""
+          >
+
+          <h2>
+            Your Flower Bloomed!
+          </h2>
+
+          <p id="bloom-text"></p>
+
+          <p id="unlock-text"></p>
+
+
+          <button
+            id="again-btn"
+            class="pixel-btn"
+          >
+            Plant Another Seed
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         FLOWER JOURNAL
+    ====================================== -->
+
+    <div
+      id="gallery"
+      class="overlay hidden"
+    >
+
+      <div class="window-box gallery-box">
+
+        <div class="window-title">
+
+          <span>
+            Flower Journal
+          </span>
+
+          <button
+            id="close-gallery"
+            class="close-btn"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <div class="gallery-body">
+
+          <p>
+            These are all the flowers you have grown so far.
+          </p>
+
+          <div
+            id="gallery-list"
+            class="gallery-list"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+</body>
+
+</html>
